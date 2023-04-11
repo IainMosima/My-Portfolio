@@ -27,7 +27,7 @@ function Work () {
 
     setTimeout(() => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
-
+      
       if (item === 'All') {
         setFilterWork(works);
       } else {
