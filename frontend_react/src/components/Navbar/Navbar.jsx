@@ -30,7 +30,8 @@ function Navbar() {
             >
               <HiX onClick={() => setToggle(false)}/>
               <ul className='app__navbar-links'>
-                {['home', 'about', 'work', 'skills', 'contact'].map((item)=>(
+                {/* remember to add skills in the navbar */}
+                {['home', 'about', 'work', 'contact'].map((item)=>(
                   <li  key={`link-${item}`}>
                     <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
                   </li>

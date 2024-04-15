@@ -30,6 +30,8 @@ function Work () {
       
       if (item === 'All') {
         setFilterWork(works);
+      } else if (item === 'Machine Learning' || item === 'Data Analysis') {
+        setFilterWork(works.filter((work) => work.tags.includes('Machine Learning')));
       } else {
         setFilterWork(works.filter((work) => work.tags.includes(item)));
       }
