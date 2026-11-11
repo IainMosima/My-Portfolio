@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iain Mosima — Software Engineer</title>
+<meta name="description" content="Software engineer in Nairobi. Backend in Python and Go, AI agents in production, AWS.">
+<meta property="og:title" content="Iain Mosima — Software Engineer">
+<meta property="og:description" content="Backend in Python and Go, AI agents in production, AWS. Nairobi.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0c0d; --panel:#141416; --line:#26262a;
+  --fg:#ededed; --muted:#8e8e94; --accent:#ff5c8a; --accent2:#7cf5c8;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --maxw:720px;
+}
+:root:not([data-theme="dark"]){}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#fbfbfa; --panel:#fff; --line:#e4e4e2;
+    --fg:#17171a; --muted:#6b6b72; --accent:#d6246a; --accent2:#0f8f6b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c0c0d; --panel:#141416; --line:#26262a;
+  --fg:#ededed; --muted:#8e8e94; --accent:#ff5c8a; --accent2:#7cf5c8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--mono); font-size:15px; line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+
+header.top{
+  position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+}
+.top .wrap{display:flex; align-items:center; justify-content:space-between; height:56px}
+.brand{font-weight:700; letter-spacing:.02em}
+.brand mark{background:var(--accent); color:#fff; padding:0 4px; border-radius:2px}
+.top nav{display:flex; gap:18px; font-size:13px; color:var(--muted)}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--accent)}
+@media (max-width:560px){ .top nav{display:none} }
+
+section{padding:72px 0; border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h1{
+  font-size:clamp(34px,8vw,60px); line-height:1.05; margin:0 0 14px;
+  letter-spacing:-.03em; font-weight:700;
+}
+h2{
+  font-size:13px; text-transform:uppercase; letter-spacing:.16em;
+  color:var(--muted); margin:0 0 28px; font-weight:500;
+}
+h3{font-size:16px; margin:0; font-weight:700; letter-spacing:-.01em}
+p{margin:0 0 16px; max-width:62ch}
+.lead{color:var(--accent); font-weight:500}
+.muted{color:var(--muted)}
+.hl{background:var(--accent); color:#fff; padding:1px 5px; border-radius:2px; white-space:nowrap}
+.hl2{border-bottom:2px solid var(--accent2); padding-bottom:1px}
+
+.reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1; transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1; transform:none; transition:none}
+  html{scroll-behavior:auto}
+}
+
+.card{
+  border:1px solid var(--line); border-radius:10px; background:var(--panel);
+  padding:20px; margin-bottom:14px; transition:border-color .2s ease, transform .2s ease;
+}
+.card:hover{border-color:var(--accent); transform:translateY(-2px)}
+.card .top-row{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+.tag{
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--accent2); border:1px solid var(--line); border-radius:999px; padding:2px 9px;
+}
+.stack{font-size:12.5px; color:var(--muted); margin:10px 0 0}
+.card p.desc{margin:10px 0 0; font-size:14px}
+.card a.repo{
+  display:inline-block; margin-top:14px; font-size:13px; text-decoration:none;
+  color:var(--accent); border-bottom:1px solid transparent;
+}
+.card a.repo:hover{border-bottom-color:var(--accent)}
+
+.job{display:grid; grid-template-columns:110px 1fr; gap:16px; padding:14px 0; border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0}
+.job .when{font-size:12.5px; color:var(--muted); padding-top:2px}
+.job .what h3{font-size:15px}
+.job .what p{margin:4px 0 0; font-size:13.5px; color:var(--muted)}
+@media (max-width:560px){ .job{grid-template-columns:1fr; gap:4px} }
+
+.links{display:flex; gap:20px; flex-wrap:wrap; font-size:14px; margin-top:8px}
+.links a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent}
+.links a:hover{border-bottom-color:var(--accent)}
+
+footer{padding:40px 0 60px; font-size:12.5px; color:var(--muted)}
+.themebtn{
+  background:none; border:1px solid var(--line); color:var(--muted);
+  font-family:var(--mono); font-size:12px; border-radius:6px; padding:4px 10px; cursor:pointer;
+}
+.themebtn:hover{color:var(--fg); border-color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="brand"><mark>I</mark>AIN</span>
+    <nav>
+      <a href="#now">Now</a>
+      <a href="#work">Work</a>
+      <a href="#where">Where</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="themebtn" id="theme" aria-label="Toggle colour theme">theme</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="intro">
+    <h1>Hey, I'm Iain.</h1>
+    <p class="lead">I build backends that stay up, and lately the AI systems that sit on top of them.</p>
+    <p>Software engineer in Nairobi. Mostly Python with FastAPI and Django, some Go, Node and TypeScript on the side, over PostgreSQL and MongoDB, running on AWS. I like the part of the job where something breaks at an awkward hour and you have to find out why.</p>
+    <p>For the last two years most of my work has been <span class="hl">AI agents in production</span>, not demos. The difference is retries, fallbacks, evaluation, and someone paging you when the answer is wrong.</p>
+    <div class="links">
+      <a href="https://github.com/IainMosima">GitHub</a>
+      <a href="https://linkedin.com/in/iain-mosima-b5b330211">LinkedIn</a>
+      <a href="mailto:iainmosima@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <section id="now" class="reveal">
+    <h2>What I'm doing now</h2>
+    <p>Building and running AI services end to end. A gateway that puts Claude, OpenAI and Gemini behind <span class="hl2">one internal API</span>, with retries, fallback routing and validation on every response. Agent tooling through LangChain and MCP, with retrieval over PostgreSQL and pgvector and source attribution, so an answer traces back to the record behind it.</p>
+    <p>Evaluation pipelines score the output. That's how I got accuracy up about 30%, by finding out what was actually breaking instead of guessing.</p>
+    <p class="muted">Open to backend, full-stack and AI engineering roles. Nairobi or remote.</p>
+  </section>
+
+  <section id="work" class="reveal">
+    <h2>Selected work</h2>
+
+    <div class="card">
+      <div class="top-row"><h3>Bank Account Creation System</h3><span class="tag">Backend</span></div>
+      <p class="desc">Automated account opening for a retail banking flow. Form ingestion, customer ID and KRA PIN verification, blacklist and fraud checks with fuzzy name matching, rule-based routing to approve, review or reject, and a full audit trail on every decision.</p>
+      <p class="stack">Next.js · TypeScript · PostgreSQL · AWS S3 · CloudFront</p>
+      <a class="repo" href="https://github.com/IainMosima/bank-account-creation-system">View code →</a>
+    </div>
+
+    <div class="card">
+      <div class="top-row"><h3>GoMart</h3><span class="tag">Backend</span></div>
+      <p class="desc">E-commerce back end on a domain-driven layout. Token-refresh authentication, type-safe SQL through SQLC, SMS and email notifications, migrations, and a full Go test suite in CI. I taught myself Go to write this one.</p>
+      <p class="stack">Go (Gin) · PostgreSQL · SQLC · AWS Cognito · Docker</p>
+      <a class="repo" href="https://github.com/IainMosima/gomart">View code →</a>
+    </div>
+
+    <div class="card">
+      <div class="top-row"><h3>Kubernetes Go Microservices</h3><span class="tag">Infrastructure</span></div>
+      <p class="desc">Microservices on Kubernetes wired together with gRPC, with Tilt for a fast local loop and repeatable deploys across environments.</p>
+      <p class="stack">Go · Kubernetes · gRPC · Tilt · Docker</p>
+      <a class="repo" href="https://github.com/IainMosima/k8s-go-microservices">View code →</a>
+    </div>
+
+    <div class="card">
+      <div class="top-row"><h3>DocuFlow</h3><span class="tag">AI</span></div>
+      <p class="desc">Document processing and workflow service. Ingestion, parsing, and the pipeline around pulling structured data out of unstructured files.</p>
+      <p class="stack">Python</p>
+      <a class="repo" href="https://github.com/IainMosima/docuflow">View code →</a>
+    </div>
+
+    <div class="card">
+      <div class="top-row"><h3>Hias Core</h3><span class="tag">Backend</span></div>
+      <p class="desc">Core backend service in Go, built around clear domain boundaries and a small, testable surface.</p>
+      <p class="stack">Go</p>
+      <a class="repo" href="https://github.com/IainMosima/hias-core">View code →</a>
+    </div>
+  </section>
+
+  <section id="where" class="reveal">
+    <h2>Where I've worked</h2>
+
+    <div class="job">
+      <div class="when">2025 — 2026</div>
+      <div class="what">
+        <h3>AI / Full-Stack Engineer · ChatARV</h3>
+        <p>Remote, USA. Model gateway, agent tooling, retrieval and evaluation. Python and Node services on AWS Lambda and S3, shipped through GitHub Actions.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">2024 — 2025</div>
+      <div class="what">
+        <h3>Full-Stack / Backend Engineer · Computech</h3>
+        <p>Nairobi. REST APIs and microservices for enterprise clients. Added CI test and build gates that cut deployment failures by about 15%.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">2024</div>
+      <div class="what">
+        <h3>Software Engineer, Industrial Attachment · APA Insurance</h3>
+        <p>Nairobi. Internal insurance workflow systems in Java (Spring Boot), Django and React, inside a regulated financial-services environment.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">2023 — 2024</div>
+      <div class="what">
+        <h3>Full-Stack Engineer, part-time · Supply Chain Solutions Hub</h3>
+        <p>Nairobi. Owned the Terraform infrastructure and got a ~67% end-to-end performance gain out of query tuning, caching and refactoring.</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">2022 — 2024</div>
+      <div class="what">
+        <h3>Backend / Full-Stack Engineer · Freelance (Upwork, Turing)</h3>
+        <p>APIs, dashboards, automation and AI integrations for international clients. Fine-tuned an LLM with PyTorch and Hugging Face on a Turing contract.</p>
+      </div>
+    </div>
+
+    <p class="muted" style="margin-top:22px">B.Sc. Mathematics &amp; Computer Science, JKUAT. ALX Software Engineering Programme. Moringa School, Data Science.</p>
+  </section>
+
+  <section id="contact" class="reveal">
+    <h2>Get in touch</h2>
+    <p>Easiest is email. I reply.</p>
+    <div class="links">
+      <a href="mailto:iainmosima@gmail.com">iainmosima@gmail.com</a>
+      <a href="tel:+254113263708">+254 113 263 708</a>
+      <a href="https://github.com/IainMosima">github.com/IainMosima</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">© 2026 Iain Mosima Nyakundi · Nairobi, Kenya</footer>
+
+<script>
+(function(){
+  try{
+    var saved = localStorage.getItem('theme');
+    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
+  }catch(e){}
+  var btn = document.getElementById('theme');
+  if(btn){
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme');
+      var next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try{ localStorage.setItem('theme', next); }catch(e){}
+    });
+  }
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
